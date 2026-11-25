@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 에듀파인 수신처 일괄등록
 
-## Getting Started
+전남·광주 학교와 기관 이름을 조회하고, 에듀파인 개인수신그룹에 올릴 엑셀 파일을 만드는 웹 프로그램입니다.
 
-First, run the development server:
+학교(기관)명을 한 줄에 하나씩 붙여넣으면 정식 명칭, 설립, 학교급, 나이스코드, 교육지원청을 채웁니다. 같은 이름이 여러 기관이면 지역을 고르고, 수신그룹명을 입력한 뒤 등록 파일을 받습니다.
+
+## 화면
+
+- **수신처 일괄등록**: 기관명 조회와 등록 파일 만들기
+- **이용방법**: 입력, 조회, 파일 만들기 순서
+- **에듀파인 등록방법**: 에듀파인에서 받은 파일을 업로드하는 화면 안내
+- **버전관리**: 데이터 버전 이력. 화면 아래 푸터에서 들어갑니다.
+
+현재 데이터는 통합 Ver. 2.0입니다.
+
+## 실행
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+브라우저에서 http://localhost:3000 을 엽니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+배포용으로 실행할 때는 아래를 사용합니다. 데이터베이스는 필요하지 않습니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## 기관 데이터 갱신
 
-To learn more about Next.js, take a look at the following resources:
+기관 목록은 `data/catalog.json`에 들어 있습니다. 엑셀 파일을 다시 반영하려면 원본 `.xlsm` 경로를 넘겨 가져온 뒤 다시 빌드합니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run import-data -- "엑셀파일.xlsm"
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 문의
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+글로컬미래교육과 김유선 ☎061-260-0309
