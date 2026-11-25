@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  background: #f4f7fb;
+  color: #1c2833;
+  font-family: "Malgun Gothic", "맑은 고딕", "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
